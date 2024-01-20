@@ -21,9 +21,14 @@ app.use("/api/admin", adminRoute);
 
 app.use(errorMiddleware);
 
-Connection();
+app.get('/', (req, res) => {
+    res.send('You can use this api for signup, login, validation, contact us, services and much more')
+})
 
-const PORT=5000;
+Connection();
+const PORT=process.env.PORT || 5000;
+
+// const PORT=5000;
 app.listen(PORT,()=>{
     console.log("app is running on port ",PORT)
 })
